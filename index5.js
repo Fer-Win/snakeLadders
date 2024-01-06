@@ -79,15 +79,27 @@ function rolltheDice(){
     rolledDice.innerHTML = `Dice Rolled: ${dice}`;
     console.log(dice);
     if(diceRoll){
-        player1.position = player1.position + dice;
+        if(player1.position + dice <= 100){
+          player1.position = player1.position + dice;
+        }
         checkSnakeAndLadder(player1.position,player1);
         Player1.innerHTML = `Player 1 Postition: ${player1.position}`;
       }else{
-        player2.position = player2.position + dice;
+        if(player2.position + dice <= 100){
+          player2.position = player2.position + dice;
+        }
         checkSnakeAndLadder(player2.position,player2);
         Player2.innerHTML = `Player 2 Postition: ${player2.position}`;
       }
     diceRoll = !diceRoll;
+    if(player1.position ==100){
+        alert('Player 1 won');
+
+    }
+    if(player2.position ==100){
+        alert('Player 2 won');
+    }
+
     // this.position = this.position + dice;
     // console.log(this.name + ' rolled a ' + dice + ' and is now at position ' + this.position);
 }
