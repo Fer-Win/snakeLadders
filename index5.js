@@ -4,6 +4,7 @@ var Player1 = document.getElementById('player1');
 var Player2 = document.getElementById('player2');
 var start = document.getElementById('start');
 var dice = document.getElementById('diceroll');
+var rolledDice = document.getElementById('rolledDice');
 // canvas.width = window.innerWidth/2;
 //  canvas.height = window.innerHeight/2;
 // console.log(data); 
@@ -75,17 +76,41 @@ start.addEventListener('click', () => {
 function rolltheDice(){
     
     let dice = Math.floor(Math.random() * 6) + 1;
+    rolledDice.innerHTML = `Dice Rolled: ${dice}`;
     console.log(dice);
     if(diceRoll){
         player1.position = player1.position + dice;
+        checkSnakeAndLadder(player1.position,player1);
         Player1.innerHTML = `Player 1 Postition: ${player1.position}`;
       }else{
         player2.position = player2.position + dice;
+        checkSnakeAndLadder(player2.position,player2);
         Player2.innerHTML = `Player 2 Postition: ${player2.position}`;
       }
     diceRoll = !diceRoll;
     // this.position = this.position + dice;
     // console.log(this.name + ' rolled a ' + dice + ' and is now at position ' + this.position);
+}
+
+
+function checkSnakeAndLadder(position,player){
+    data.map((item, index) => {
+        if(item.id == position){
+            if(item.snakeAndLadders && item.snakeAndLadders > item.id){
+                player.position = item.snakeAndLadders;
+                console.log(player.name + ' got a ladder and is now at position ' + player.position);
+            }else{
+          if(item.snakeAndLadders){
+
+                player.position = item.snakeAndLadders;
+                console.log(player.name + ' got a snake and is now at position ' + player.position);
+            }
+        
+            }
+        }
+    }
+)
+
 }
 
    
