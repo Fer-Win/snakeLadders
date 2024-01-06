@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; ">
+
+    <canvas id="myCanvas" style="border: 2px solid black;" width="800" height="800">hello There</canvas>
+    <button onclick="startAnimation()">Start Animation</button>
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var c = canvas.getContext('2d');
+
+        var x = 100;
+        var y = 75;
+        var radius = 30;
+        var dx = 2;
+        var dy = 2;
+
+        function animateCircle() {
+            x =x+10*dx;
+            y =y+10*dy;
+
+            c.clearRect(0, 0, canvas.width, canvas.height);
+            c.beginPath();
+            c.arc(x, y, radius, 0, 2 * Math.PI);
+            c.fill();
+            c.stroke();
+
+            // Check conditions (e.g., bouncing off walls)
+            if (x + radius > canvas.width || x - radius < 0) {
+                dx = -dx;
+            }
+
+            if (y + radius > canvas.height || y - radius < 0) {
+                dy = -dy;
+            }
+
+            // Request the next frame
+            requestAnimationFrame(animateCircle);
+        }
+
+        function startAnimation() {
+            // Start the animation
+            requestAnimationFrame(animateCircle);
+        }
+    </script>
+
+</body>
+
+</html>

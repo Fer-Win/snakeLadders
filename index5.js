@@ -75,6 +75,7 @@ start.addEventListener('click', () => {
 function checkWinner(){
   if(player1.position ==100){
     alert('Player 1 won');
+    
 
 }
 if(player2.position ==100){
@@ -129,13 +130,49 @@ function checkSnakeAndLadder(position,player){
 }
 
    
-// c.beginPath();
-// c.arc(100, 75, 30, 0, 2 * Math.PI);
-// c.fill()
-// c.stroke();
+c.beginPath();
+c.arc(100, 75, 30, 0, 2 * Math.PI);
+c.fill()
+c.stroke();
    
    
-   
+//    // Assuming you have a canvas context 'c' and a circle with initial position (100, 75)
+// var x = 100;
+// var y = 75;
+// var radius = 30;
+// var dx = 2; // Change in x (speed in the x direction)
+// var dy = 2; // Change in y (speed in the y direction)
+
+// function animateCircle() {
+//     requestAnimationFrame(animateCircle);
+
+//     // Update the circle's position based on some condition
+//     x =x+2*dx;
+//     y =y+ 2*dy;
+
+//     // Check conditions for bouncing off walls or other interactions
+//     // For example, bouncing off the walls:
+//     if (x + radius > canvas.width || x - radius < 0) {
+//         dx = -dx; // Reverse the direction in the x-axis
+//     }
+
+//     if (y + radius > canvas.height || y - radius < 0) {
+//         dy = -dy; // Reverse the direction in the y-axis
+//     }
+
+//     // Clear the canvas
+//     c.clearRect(0, 0, canvas.width, canvas.height);
+
+//     //Draw the updated circle
+//     c.beginPath();
+//      c.arc(x, y, radius, 0, 2 * Math.PI);
+//      c.fill();
+//     c.stroke();
+// }
+
+// // Call the animate function to start the animation loop
+// animateCircle();
+
  // var c = canvas.getContext('2d');
 // c.fillStyle = 'rgba(255,0,0,0.5)';
 // c.fillRect(0,0,80,80);
